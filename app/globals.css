@@ -1,0 +1,302 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  --background: oklch(1.0000 0 0);
+  --foreground: oklch(0.1452 0.0021 286.1313);
+  --card: oklch(0.9707 0.0027 286.3504);
+  --card-foreground: oklch(0.1452 0.0021 286.1313);
+  --popover: oklch(1.0000 0 0);
+  --popover-foreground: oklch(0.1452 0.0021 286.1313);
+  --primary: oklch(0.5106 0.2301 276.9656);
+  --primary-foreground: oklch(1.0000 0 0);
+  --secondary: oklch(0.9163 0.0420 285.5407);
+  --secondary-foreground: oklch(0.2573 0.0861 281.2883);
+  --muted: oklch(0.9560 0.0040 286.3240);
+  --muted-foreground: oklch(0.5007 0.0047 286.2288);
+  --accent: oklch(0.5854 0.2041 277.1173);
+  --accent-foreground: oklch(1.0000 0 0);
+  --destructive: oklch(0.6368 0.2078 25.3313);
+  --destructive-foreground: oklch(1.0000 0 0);
+  --border: oklch(0.9225 0.0027 286.3471);
+  --input: oklch(0.9225 0.0027 286.3471);
+  --ring: oklch(0.5106 0.2301 276.9656);
+  --chart-1: oklch(0.5106 0.2301 276.9656);
+  --chart-2: oklch(0.6801 0.1583 276.9349);
+  --chart-3: oklch(0.8699 0.0622 274.0386);
+  --chart-4: oklch(0.3588 0.1354 278.6973);
+  --chart-5: oklch(0.7853 0.1041 274.7134);
+  --sidebar: oklch(0.9800 0.0040 286.3263);
+  --sidebar-foreground: oklch(0.2573 0.0861 281.2883);
+  --sidebar-primary: oklch(0.5106 0.2301 276.9656);
+  --sidebar-primary-foreground: oklch(1.0000 0 0);
+  --sidebar-accent: oklch(0.9163 0.0420 285.5407);
+  --sidebar-accent-foreground: oklch(0.5106 0.2301 276.9656);
+  --sidebar-border: oklch(0.9225 0.0027 286.3471);
+  --sidebar-ring: oklch(0.5106 0.2301 276.9656);
+  --font-sans: 'Inter', sans-serif;
+  --font-serif: 'Lora', serif;
+  --font-mono: 'JetBrains Mono', monospace;
+  --radius: 0.75rem;
+}
+
+.dark {
+  --background: oklch(0 0 0);
+  --foreground: oklch(1.0000 0 0);
+  --card: oklch(0.1457 0.0043 285.8570);
+  --card-foreground: oklch(0.9626 0.0066 286.2742);
+  --popover: oklch(0 0 0);
+  --popover-foreground: oklch(0.9626 0.0066 286.2742);
+  --primary: oklch(0.5679 0.2113 276.7065);
+  --primary-foreground: oklch(1.0000 0 0);
+  --secondary: oklch(0.2542 0.0611 281.1423);
+  --secondary-foreground: oklch(0.9163 0.0420 285.5407);
+  --muted: oklch(0.1743 0.0227 283.7998);
+  --muted-foreground: oklch(0.6822 0.0116 286.0877);
+  --accent: oklch(0.3340 0.1038 279.1852);
+  --accent-foreground: oklch(0.7853 0.1041 274.7134);
+  --destructive: oklch(0.6633 0.2236 28.2919);
+  --destructive-foreground: oklch(1.0000 0 0);
+  --border: oklch(0.2286 0.0096 285.6168);
+  --input: oklch(0.2286 0.0096 285.6168);
+  --ring: oklch(0.5679 0.2113 276.7065);
+  --sidebar: oklch(0.0969 0 0);
+  --sidebar-foreground: oklch(0.9626 0.0066 286.2742);
+}
+
+@layer base {
+  * {
+    border-color: var(--border);
+    outline-color: color-mix(in oklch, var(--ring) 50%, transparent);
+  }
+
+  body {
+    background-color: var(--background);
+    color: var(--foreground);
+  }
+}
+
+/* ============================================
+   STAR ANIMATIONS
+   ============================================ */
+.star {
+  animation: twinkle 3s infinite;
+}
+
+@keyframes twinkle {
+  0%, 100% {
+    opacity: 0.3;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.2);
+  }
+}
+
+/* Star positions */
+.star:nth-child(1)  { top: 10%; left: 15%; animation-delay: 0s;   }
+.star:nth-child(2)  { top: 30%; left: 25%; animation-delay: 0.5s; }
+.star:nth-child(3)  { top: 50%; left: 10%; animation-delay: 1s;   }
+.star:nth-child(4)  { top: 20%; left: 85%; animation-delay: 1.5s; }
+.star:nth-child(5)  { top: 60%; left: 90%; animation-delay: 2s;   }
+.star:nth-child(6)  { top: 40%; left: 50%; animation-delay: 0.8s; }
+.star:nth-child(7)  { top: 70%; left: 60%; animation-delay: 1.2s; }
+.star:nth-child(8)  { top: 15%; left: 75%; animation-delay: 2.5s; }
+.star:nth-child(9)  { top: 55%; left: 35%; animation-delay: 0.3s; }
+.star:nth-child(10) { top: 80%; left: 20%; animation-delay: 1.8s; }
+.star:nth-child(11) { top: 25%; left: 5%;  animation-delay: 2.2s; }
+.star:nth-child(12) { top: 65%; left: 70%; animation-delay: 0.6s; }
+.star:nth-child(13) { top: 35%; left: 45%; animation-delay: 1.4s; }
+.star:nth-child(14) { top: 75%; left: 80%; animation-delay: 2.8s; }
+.star:nth-child(15) { top: 45%; left: 30%; animation-delay: 0.2s; }
+.star:nth-child(16) { top: 85%; left: 55%; animation-delay: 1.6s; }
+.star:nth-child(17) { top: 5%;  left: 65%; animation-delay: 2.4s; }
+.star:nth-child(18) { top: 90%; left: 40%; animation-delay: 1.1s; }
+.star:nth-child(19) { top: 18%; left: 88%; animation-delay: 0.9s; }
+.star:nth-child(20) { top: 62%; left: 12%; animation-delay: 2.6s; }
+
+/* ============================================
+   GALAXY ANIMATIONS
+   ============================================ */
+.galaxy {
+  animation: rotateGalaxy 60s linear infinite;
+}
+
+@keyframes rotateGalaxy {
+  from { transform: translateY(-50%) rotate(0deg); }
+  to   { transform: translateY(-50%) rotate(360deg); }
+}
+
+/* Galaxy arms rotation */
+.galaxy-arm:nth-child(2) { transform: rotate(0deg);   }
+.galaxy-arm:nth-child(3) { transform: rotate(120deg);  }
+.galaxy-arm:nth-child(4) { transform: rotate(240deg);  }
+
+/* ============================================
+   GALAXY GRADIENTS
+   ============================================ */
+
+/* Purple (default) */
+.galaxy-core {
+  background: radial-gradient(circle, rgba(167, 139, 250, 1) 0%, rgba(139, 92, 246, 0.8) 30%, rgba(139, 92, 246, 0.4) 70%);
+}
+
+.galaxy-arm {
+  background: radial-gradient(ellipse, rgba(139, 92, 246, 0.6) 0%, rgba(167, 139, 250, 0.4) 40%, rgba(139, 92, 246, 0.2) 70%);
+}
+
+/* Blue/Cyan */
+.galaxy-blue-core {
+  background: radial-gradient(circle, rgba(59, 130, 246, 1) 0%, rgba(96, 165, 250, 0.8) 30%, rgba(59, 130, 246, 0.4) 70%);
+}
+
+.galaxy-blue-arm {
+  background: radial-gradient(ellipse, rgba(59, 130, 246, 0.6) 0%, rgba(96, 165, 250, 0.4) 40%, rgba(59, 130, 246, 0.2) 70%);
+}
+
+/* Pink/Magenta */
+.galaxy-pink-core {
+  background: radial-gradient(circle, rgba(236, 72, 153, 1) 0%, rgba(219, 39, 119, 0.8) 30%, rgba(236, 72, 153, 0.4) 70%);
+}
+
+.galaxy-pink-arm {
+  background: radial-gradient(ellipse, rgba(236, 72, 153, 0.6) 0%, rgba(219, 39, 119, 0.4) 40%, rgba(236, 72, 153, 0.2) 70%);
+}
+
+/* Green/Emerald */
+.galaxy-green-core {
+  background: radial-gradient(circle, rgba(52, 211, 153, 1) 0%, rgba(16, 185, 129, 0.8) 30%, rgba(52, 211, 153, 0.4) 70%);
+}
+
+.galaxy-green-arm {
+  background: radial-gradient(ellipse, rgba(52, 211, 153, 0.6) 0%, rgba(16, 185, 129, 0.4) 40%, rgba(52, 211, 153, 0.2) 70%);
+}
+
+/* Orange */
+.galaxy-orange-core {
+  background: radial-gradient(circle, rgba(251, 146, 60, 1) 0%, rgba(249, 115, 22, 0.8) 30%, rgba(251, 146, 60, 0.4) 70%);
+}
+
+.galaxy-orange-arm {
+  background: radial-gradient(ellipse, rgba(251, 146, 60, 0.6) 0%, rgba(249, 115, 22, 0.4) 40%, rgba(251, 146, 60, 0.2) 70%);
+}
+
+/* ============================================
+   PLANET STYLES
+   ============================================ */
+
+/* Saturn */
+.planet-saturn {
+  background: radial-gradient(circle at 35% 35%, rgba(253, 224, 71, 0.9), rgba(234, 179, 8, 0.7), rgba(202, 138, 4, 0.5));
+  box-shadow:
+    0 0 50px rgba(234, 179, 8, 0.4),
+    inset -25px -25px 50px rgba(0, 0, 0, 0.4);
+}
+
+.planet-ring {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 200px;
+  height: 40px;
+  margin-top: -10px;
+  margin-left: -100px;
+  border: 3px solid rgba(234, 179, 8, 0.3);
+  border-radius: 50%;
+  transform: rotateX(75deg);
+  box-shadow: 0 0 20px rgba(234, 179, 8, 0.2);
+}
+
+/* Blue Glowing Planet */
+.planet-glow {
+  background: radial-gradient(circle at 30% 30%, rgba(147, 197, 253, 0.8), rgba(59, 130, 246, 0.6), rgba(30, 64, 175, 0.4));
+  box-shadow:
+    0 0 60px rgba(59, 130, 246, 0.5),
+    inset -20px -20px 40px rgba(0, 0, 0, 0.3);
+}
+
+/* ============================================
+   FLOAT ANIMATION
+   ============================================ */
+@keyframes float {
+  0%, 100% { transform: translateY(0px);  }
+  50%       { transform: translateY(-20px); }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+/* ============================================
+   FADE IN ANIMATIONS
+   ============================================ */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeInUp 0.8s ease-out forwards;
+  opacity: 0;
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.8s ease-out forwards;
+  opacity: 0;
+}
+
+.delay-100 { animation-delay: 0.1s; }
+.delay-200 { animation-delay: 0.2s; }
+.delay-300 { animation-delay: 0.3s; }
+
+
+
+/* ============================================
+   COMMAND DIALOG (Search) - Dark Theme
+   ============================================ */
+[cmdk-root] {
+    background: rgba(10, 10, 10, 0.98) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    border-radius: 1rem !important;
+}
+
+[cmdk-input] {
+    background: transparent !important;
+    color: white !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+}
+
+[cmdk-input]::placeholder {
+    color: rgba(156, 163, 175, 1) !important;
+}
+
+[cmdk-item] {
+    color: rgba(209, 213, 219, 1) !important;
+}
+
+[cmdk-item][aria-selected="true"] {
+    background: rgba(255, 255, 255, 0.05) !important;
+    color: white !important;
+}
+
+[cmdk-group-heading] {
+    color: rgba(107, 114, 128, 1) !important;
+}
+
+[cmdk-separator] {
+    background: rgba(255, 255, 255, 0.05) !important;
+}
+
+[cmdk-empty] {
+    color: rgba(107, 114, 128, 1) !important;
+}
