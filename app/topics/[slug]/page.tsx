@@ -10,6 +10,10 @@ import { allTopics } from "../topics.data"
 import { articleContent } from "../topics.content"
 import { ExternalLink } from "lucide-react"
 
+type PageProps = {
+  params: any
+}
+
 /* ---------------------------------- */
 /* Static Params */
 /* ---------------------------------- */
@@ -22,11 +26,7 @@ export async function generateStaticParams() {
 /* ---------------------------------- */
 /* Metadata */
 /* ---------------------------------- */
-export async function generateMetadata({
-  params,
-}: {
-  params: { slug: string }
-}) {
+export async function generateMetadata({ params }: PageProps) {
   const { slug } = await params
 
   const topic = allTopics.find((t) => t.slug === slug)
@@ -44,12 +44,14 @@ export async function generateMetadata({
 /* ---------------------------------- */
 /* Page */
 /* ---------------------------------- */
-export default async function TopicArticlePage({
-  params,
-}: {
-  params: { slug: string }
-}) {
+
+
+
+export default async function TopicArticlePage({ params }: PageProps) {
   const { slug } = await params
+
+console.log("Slug:", slug)
+console.log("All slugs:", allTopics.map((t) => t.slug))
 
   const topic = allTopics.find((t) => t.slug === slug)
   const content = articleContent[slug]
