@@ -7,7 +7,7 @@ import ArticleHero from "./components/ArticleHero"
 import ArticleContent from "./components/ArticleContent"
 import KeyTakeaways from "./components/KeyTakeaways"
 import RelatedTopics from "./components/RelatedTopics"
-import { allTopics } from "../topics.data"
+import { allTopics,Topic } from "../topics.data"
 import { articleContent } from "../topics.content"
 
 export async function generateStaticParams() {
